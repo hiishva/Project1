@@ -1,4 +1,4 @@
-# Project1
+# CS4348 Project1
 Encryption/DecryptionProgram
 
 The project will be implemented as three separate programs. There will be a logger –
