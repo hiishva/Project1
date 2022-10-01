@@ -34,8 +34,12 @@ def decrypt(encrypted, key):
 
 
 if __name__ == "__main__":
-    string = "HELLO"
-    keyword = "HELLO"
+    string = input("ENTER A WORD: ") 
+    string = string.upper()
+    
+    keyword = input("ENTER A KEY: ")
+    keyword = keyword.upper()
+
     key = genKey(string, keyword)
     encrypted = encrypt(string, key)
     print ("ENCRYPTED: ", encrypted)

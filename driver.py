@@ -2,18 +2,36 @@
 import sys
 from subprocess import Popen, PIPE
 
-mem = Popen(['python3','logger.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
+
+log = Popen(['python3', 'logger.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
+#encrypt = Popen(['python3', 'encryption.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
+filename = sys.argv[1]
+log.stdin.write("create\n")
+log.stdin.write(filename + "\n")
+
 
 for i in range(10,0,-1):
-    mem.stdin.write("write\n")
-    mem.stdin.write(str(i))
-    mem.stdin.write("\n")
-    sys.stdout.write("set to ")
-    mem.stdin.write("read\n")
-    mem.stdin.flush()
-    print(mem.stdout.readline().rstrip())
-mem.stdin.write("halt\n")
-mem.stdin.flush()
+    log.stdin.write("write\n")
+    log.stdin.write(str(i))
+    log.stdin.write("\n")
+    sys.stdout.write("Set to ")
+    log.stdin.write("read\n")
+    log.stdin.flush()
+    print(log.stdout.readline().rstrip())
 
-mem.wait
+log.stdin.write("halt\n")
+log.stdin.flush()
+
+log.wait()
+
+
+
+
+
+
+
+
+
+
+
 
