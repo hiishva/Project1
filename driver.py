@@ -3,7 +3,7 @@ from subprocess import Popen, PIPE
 
 #PIPES TO THE LOGGER AND ENCRYPTION FILE
 log = Popen(['python3', 'logger.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
-#encrypt = Popen(['python3', 'encryption.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
+encrypts = Popen(['python3', 'encryption.py'], stdout=PIPE, stdin=PIPE, encoding='utf8')
 
 filename = sys.argv[1] #Command line arguements, for the file name
 log.stdin.write("create\n") 
@@ -25,20 +25,34 @@ while cmnd != "quit":
         cmnd = "passkey"
         log.stdin.write("passkey\n")
         log.stdin.flush()
+        encrypts.stdin.write("passkey\n")
+        encrypts.stdin.flush()
         selectPswd = input ("Select password from history (1) or create a new one(2): \n")
-        if int(selectPswd) == 1: #Select a new password
+        if int(selectPswd) == 1: #Select a password from history
             for i in range(len(history)): 
                 print(str(i + 1) + "-" + history[i]+ "\n")
             pswdChoice = input ("Select the password you'd like to use: ")
             pswd = str(history[int(pswdChoice)-1])
+            #encrypts.stdin.write(str(pswd) + "\n")
             log.stdin.write(str(pswd) + "\n")
             log.stdin.flush()
-        else: #Choose a password from the history
+            #encrypts.stdin.flush()
+        else: #Choose a new tail
             pswd = input("Insert the password you'd like to use: ")
             history.append(str(pswd))
             isPswrdSet = True
+            encrypts.stdin.write(str(pswd) + "\n")
+            encrypts.stdin.flush()
             log.stdin.write(str(pswd) +"\n")
             log.stdin.flush()
+            cmnd = encrypts.stdout.readline().rstrip()
+            if cmnd == "result":
+                log.stdin.write("resultpasskey\n")
+                suc = "success"
+                log.stdin.write(str(suc) + "\n")
+                cmnd = ""
+                log.stdin.flush()
+                pass
     #user selects encrypt
     elif int(command) == 2:
         cmnd = "encrypt"
@@ -108,6 +122,9 @@ while cmnd != "quit":
     elif int(command) == 5:
         cmnd = "quit"
         log.stdin.write("halt\n")
+        encrypts.stdin.write("halt\n")
 
 log.stdin.flush()
 log.wait()
+encrypts.stdin.flush()
+encrypts.wait()
