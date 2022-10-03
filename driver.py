@@ -33,11 +33,19 @@ while cmnd != "quit":
                 print(str(i + 1) + "-" + history[i]+ "\n")
             pswdChoice = input ("Select the password you'd like to use: ")
             pswd = str(history[int(pswdChoice)-1])
-            #encrypts.stdin.write(str(pswd) + "\n")
+            encrypts.stdin.write(str(pswd) + "\n")
+            encrypts.stdin.flush()
             log.stdin.write(str(pswd) + "\n")
             log.stdin.flush()
-            #encrypts.stdin.flush()
-        else: #Choose a new tail
+            cmnd = encrypts.stdout.readline().rstrip()
+            if cmnd == "result":
+                log.stdin.write("resultpasskey\n")
+                suc = "success"
+                log.stdin.write(str(suc) + "\n")
+                cmnd = ""
+                log.stdin.flush()
+                pass
+        else: #Choose a new password
             pswd = input("Insert the password you'd like to use: ")
             history.append(str(pswd))
             isPswrdSet = True
@@ -89,6 +97,11 @@ while cmnd != "quit":
                 encrypts.stdin.flush()
                 log.stdin.write(str(encrypt) + "\n")
                 log.stdin.flush()
+
+                encryptedTxt = encrypts.stdout.readline().rstrip()
+                log.stdin.write("resultsEncrypts\n")
+                log.stdin.write(str(encryptedTxt) + "\n")
+                print("RESULTS: " + encryptedTxt + '\n')
     #Selects the decrypt command
     elif int(command) == 3:
         cmnd = "decrypt"
@@ -124,6 +137,12 @@ while cmnd != "quit":
                 decrypt = str(history[int(decryptChoice)-1])
                 log.stdin.write(str(decrypt) + "\n") #Sends the logger file decrypt command
                 log.stdin.flush()
+                encrypts.stdin.write(str(decrypt) + "\n")
+                encrypts.stdin.flush()
+                decryptedText = encrypts.stdout.readline().rstrip()
+                log.stdin.write("resultsDecrypts\n")
+                log.stdin.write(str(decryptedText) + "\n")
+                print("RESULTS: " + decryptedText + '\n')
     #Shows the history 
     elif int(command) == 4:
         cmnd = "history"
