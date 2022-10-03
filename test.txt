@@ -1,0 +1,142 @@
+
+2022-10-02 22:09:24 [START] Logging Started
+2022-10-02 22:09:27 [PASSKEY] Passkey set as hello
+2022-10-02 22:09:27 [RESULT] Success
+2022-10-02 22:09:29 [ERROR] Passkey not set 
+2022-10-02 22:09:40 [STOP] Logging Stopped
+2022-10-02 22:10:22 [START] Logging Started
+2022-10-02 22:10:24 [PASSKEY] Passkey set as hello
+2022-10-02 22:10:24 [RESULT] Success
+2022-10-02 22:13:15 [START] Logging Started
+2022-10-02 22:13:19 [PASSKEY] Passkey set as hello
+2022-10-02 22:13:19 [RESULT] Success
+2022-10-02 22:14:33 [START] Logging Started
+2022-10-02 22:14:37 [PASSKEY] Passkey set as hello
+2022-10-02 22:14:37 [RESULT] Success
+2022-10-02 22:15:27 [START] Logging Started
+2022-10-02 22:15:30 [PASSKEY] Passkey set as hello
+2022-10-02 22:15:30 [RESULT] Success
+2022-10-02 22:16:34 [START] Logging Started
+2022-10-02 22:16:37 [PASSKEY] Passkey set as hello
+2022-10-02 22:16:37 [RESULT] Success
+2022-10-02 22:18:13 [START] Logging Started
+2022-10-02 22:18:17 [PASSKEY] Passkey set as hello
+2022-10-02 22:18:17 [RESULT] Success
+2022-10-02 22:20:05 [START] Logging Started
+2022-10-02 22:20:07 [PASSKEY] Passkey set as hello
+2022-10-02 22:20:07 [RESULT] Success
+2022-10-02 22:22:55 [START] Logging Started
+2022-10-02 22:22:59 [PASSKEY] Passkey set as hello
+2022-10-02 22:22:59 [RESULT] Success
+2022-10-02 22:25:04 [START] Logging Started
+2022-10-02 22:25:07 [PASSKEY] Passkey set as hello
+2022-10-02 22:25:07 [RESULT] Success
+2022-10-02 22:27:07 [START] Logging Started
+2022-10-02 22:27:09 [PASSKEY] Passkey set as hello
+2022-10-02 22:27:09 [RESULT] Success
+2022-10-02 22:28:39 [START] Logging Started
+2022-10-02 22:28:42 [PASSKEY] Passkey set as hello
+2022-10-02 22:28:42 [RESULT] Success
+2022-10-02 22:30:32 [START] Logging Started
+2022-10-02 22:30:36 [PASSKEY] Passkey set as hello
+2022-10-02 22:30:36 [RESULT] Success
+2022-10-02 22:36:31 [START] Logging Started
+2022-10-02 22:36:35 [PASSKEY] Passkey set as hello
+2022-10-02 22:36:35 [RESULT] Success
+2022-10-02 22:38:18 [START] Logging Started
+2022-10-02 22:38:20 [PASSKEY] Passkey set as hello
+2022-10-02 22:38:20 [RESULT] Success
+2022-10-02 22:38:44 [START] Logging Started
+2022-10-02 22:38:46 [PASSKEY] Passkey set as hello
+2022-10-02 22:38:46 [RESULT] Success
+2022-10-02 22:39:52 [START] Logging Started
+2022-10-02 22:39:55 [PASSKEY] Passkey set as hello
+2022-10-02 22:39:55 [RESULT] Success
+2022-10-02 22:43:13 [START] Logging Started
+2022-10-02 22:43:16 [PASSKEY] Passkey set as hello
+2022-10-02 22:43:16 [RESULT] Success
+2022-10-02 22:45:49 [START] Logging Started
+2022-10-02 22:45:51 [PASSKEY] Passkey set as hello
+2022-10-02 22:45:51 [RESULT] Success
+2022-10-02 22:47:29 [START] Logging Started
+2022-10-02 22:47:32 [PASSKEY] Passkey set as hello
+2022-10-02 22:47:32 [RESULT] Success
+2022-10-02 22:47:38 [ENCRYPT] Encrypted hello
+2022-10-02 22:47:42 [RESULT] OIWWC
+2022-10-02 22:47:42 [STOP] Logging Stopped
+2022-10-02 22:48:48 [START] Logging Started
+2022-10-02 22:48:51 [PASSKEY] Passkey set as hello
+2022-10-02 22:48:51 [RESULT] Success
+2022-10-02 22:48:54 [ENCRYPT] Encrypted hello
+2022-10-02 22:48:59 [RESULT] OIWWC
+2022-10-02 22:48:59 [STOP] Logging Stopped
+2022-10-02 22:49:01 [START] Logging Started
+2022-10-02 22:49:07 [PASSKEY] Passkey set as hello
+2022-10-02 22:49:07 [RESULT] Success
+2022-10-02 22:49:11 [ENCRYPT] Encrypted hello
+2022-10-02 22:49:28 [RESULT] OIWWC
+2022-10-02 22:49:28 [DECRYPT] Decrypted oiwwc
+2022-10-02 22:49:33 [RESULT] HELLO
+2022-10-02 22:49:33 [STOP] Logging Stopped
+2022-10-02 22:51:01 [START] Logging Started
+2022-10-02 22:51:31 [PASSKEY] Passkey set as hello
+2022-10-02 22:51:31 [RESULT] Success
+2022-10-02 22:51:34 [STOP] Logging Stopped
+2022-10-02 22:52:06 [START] Logging Started
+2022-10-02 22:52:09 [PASSKEY] Passkey set as hello
+2022-10-02 22:52:09 [RESULT] Success
+2022-10-02 22:52:15 [ENCRYPT] Encrypted hello
+2022-10-02 22:52:18 [RESULT] OIWWC
+2022-10-02 22:52:18 [STOP] Logging Stopped
+2022-10-02 22:52:47 [START] Logging Started
+2022-10-02 22:52:50 [PASSKEY] Passkey set as hello
+2022-10-02 22:52:50 [RESULT] Success
+2022-10-02 22:52:58 [DECRYPT] Decrypted oiwwc
+2022-10-02 22:53:01 [RESULT] HELLO
+2022-10-02 22:53:01 [STOP] Logging Stopped
+2022-10-02 22:53:28 [START] Logging Started
+2022-10-02 22:53:28 [ENCRYPT] Encrypted error
+2022-10-02 22:53:42 [STOP] Logging Stopped
+2022-10-02 22:54:35 [START] Logging Started
+2022-10-02 22:54:35 [ERROR] Passkey not set 
+2022-10-02 22:54:41 [PASSKEY] Passkey set as hello
+2022-10-02 22:54:41 [RESULT] Success
+2022-10-02 22:54:50 [ENCRYPT] Encrypted hello
+2022-10-02 22:55:02 [RESULT] OIWWC
+2022-10-02 22:55:02 [DECRYPT] Decrypted hello
+2022-10-02 22:55:05 [RESULT] AAAAA
+2022-10-02 22:55:05 [STOP] Logging Stopped
+2022-10-02 22:55:43 [START] Logging Started
+2022-10-02 22:55:43 [ERROR] Passkey not set 
+2022-10-02 22:55:53 [PASSKEY] Passkey set as hello
+2022-10-02 22:55:53 [RESULT] Success
+2022-10-02 22:56:02 [DECRYPT] Decrypted oiwwc
+2022-10-02 22:56:05 [RESULT] HELLO
+2022-10-02 22:56:05 [STOP] Logging Stopped
+2022-10-02 22:57:23 [START] Logging Started
+2022-10-02 22:57:26 [PASSKEY] Passkey set as hello
+2022-10-02 22:57:26 [RESULT] Success
+2022-10-02 22:57:33 [ENCRYPT] Encrypted hello
+2022-10-02 22:57:40 [RESULT] OIWWC
+2022-10-02 22:57:40 [DECRYPT] Decrypted hello
+2022-10-02 22:57:45 [RESULT] AAAAA
+2022-10-02 22:57:45 [HISTORY] History shown 
+2022-10-02 22:57:45 [STOP] Logging Stopped
+2022-10-02 22:59:07 [START] Logging Started
+2022-10-02 22:59:07 [ERROR] Passkey not set 
+2022-10-02 22:59:15 [PASSKEY] Passkey set as hello
+2022-10-02 22:59:15 [RESULT] Success
+2022-10-02 22:59:55 [DECRYPT] Decrypted oiwwc
+2022-10-02 22:59:58 [RESULT] HELLO
+2022-10-02 23:00:03 [ENCRYPT] Encrypted ishva
+2022-10-02 23:00:09 [RESULT] PWSGO
+2022-10-02 23:00:09 [HISTORY] History shown 
+2022-10-02 23:00:09 [STOP] Logging Stopped
+2022-10-03 11:16:26 [START] Logging Started
+2022-10-03 11:16:30 [PASSKEY] Passkey set as hello
+2022-10-03 11:16:30 [RESULT] Success
+2022-10-03 11:16:35 [ENCRYPT] Encrypted hello
+2022-10-03 11:16:42 [RESULT] OIWWC
+2022-10-03 11:16:42 [DECRYPT] Decrypted hello
+2022-10-03 11:16:44 [RESULT] AAAAA
+2022-10-03 11:16:44 [STOP] Logging Stopped

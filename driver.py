@@ -34,31 +34,31 @@ while cmnd != "quit":
                 print(str(i + 1) + "-" + history[i]+ "\n")
             pswdChoice = input ("Select the password you'd like to use: ")
             pswd = str(history[int(pswdChoice)-1])
-            encrypts.stdin.write(str(pswd) + "\n")
+            encrypts.stdin.write(str(pswd) + "\n") #sends the password to the encryption
             encrypts.stdin.flush()
-            log.stdin.write(str(pswd) + "\n")
+            log.stdin.write(str(pswd) + "\n") #sends the password to the logger
             log.stdin.flush()
-            cmnd = encrypts.stdout.readline().rstrip()
+            cmnd = encrypts.stdout.readline().rstrip() #gets the result that the password was set
             if cmnd == "result":
                 log.stdin.write("resultpasskey\n")
                 suc = "success"
-                log.stdin.write(str(suc) + "\n")
+                log.stdin.write(str(suc) + "\n") #writes to the logger
                 cmnd = ""
                 log.stdin.flush()
                 pass
         else: #Choose a new password
             isPswrdSet = True
             pswd = input("Insert the password you'd like to use: ")
-            history.append(str(pswd))
-            encrypts.stdin.write(str(pswd) + "\n")
+            history.append(str(pswd)) #adds password to the history
+            encrypts.stdin.write(str(pswd) + "\n") #sends to the encryption
             encrypts.stdin.flush()
-            log.stdin.write(str(pswd) +"\n")
+            log.stdin.write(str(pswd) +"\n") #sends to the logger
             log.stdin.flush()
-            cmnd = encrypts.stdout.readline().rstrip()
+            cmnd = encrypts.stdout.readline().rstrip() #gets the result from the encryption
             if cmnd == "result":
                 log.stdin.write("resultpasskey\n")
                 suc = "success"
-                log.stdin.write(str(suc) + "\n")
+                log.stdin.write(str(suc) + "\n") #sends it to logger
                 cmnd = ""
                 log.stdin.flush()
                 pass
@@ -66,47 +66,41 @@ while cmnd != "quit":
     elif int(command) == 2:
         cmnd = "encrypt"
         
-        #password is set 
+        #password isn't set 
         if not isPswrdSet: #Check if the password is not set
             cmnd = "error"
             error = "error"
-            encrypts.stdin.write("error\n")
+            encrypts.stdin.write("error\n") #sends the error message to the encryption
             encrypts.stdin.flush()
             
-            log.stdin.write("error\n")
+            log.stdin.write("error\n") #sends the error message to the logger
             log.stdin.flush()
             print("ERROR PASSWORD IS NOT SET\n")
-            err = encrypts.stdout.readline().rstrip()
+            err = encrypts.stdout.readline().rstrip() #Recieves the error and sends to logger
             encrypts.stdin.flush()
-            log.stdin.write(str(err) + "\n") #sends error to logger
+            log.stdin.write(str(err) + "\n") #sends error to logger 
             log.stdin.flush()
             cmnd = ""
             pass
-            
+
+        #password is set
         else:
             encrypts.stdin.write("encrypt\n")
             encrypts.stdin.flush()
             log.stdin.write("encrypt\n")
             log.stdin.flush()
-            encrypted = input("Choose from history(1) or type word(2)\n")
+            encrypted = input("Choose from history(1) or type word(2)\n") #choose from history or from word
             if int(encrypted) == 2: #Selects a new word to encrypt
                 encrpt = input("Insert the word you'd like to encrypt: ")
-                #print(encrpt + "1\n")
                 history.append(encrpt) #adds the word to the history
-                #print(history)
-
                 log.stdin.write(str(encrpt) +"\n") #sends to the logger file to log
                 log.stdin.flush()
-                #print(encrpt + "2\n")
-                encrypts.stdin.write(str(encrpt) +"\n")
+                encrypts.stdin.write(str(encrpt) +"\n") #sends to the encryption
                 encrypts.stdin.flush()
-                #print(encrpt + "3\n")
-                encryptedTxt = encrypts.stdout.readline().rstrip()
-                #print(encryptedTxt + "4\n")
+                encryptedTxt = encrypts.stdout.readline().rstrip() #gets the encrypted text
                 log.stdin.write("resultsEncrypts\n")
                 log.stdin.write(str(encryptedTxt) + "\n")
-                print("RESULTS: " + encryptedTxt + '\n')
-                #print(encrpt + "5\n")
+                print("RESULTS: " + encryptedTxt + '\n') #Prints the results to the terminal 
             else: #Selects the word from the history
                 for i in range(len(history)): 
                     print(str(i + 1) + "-" + history[i]+ "\n")
@@ -120,7 +114,8 @@ while cmnd != "quit":
                 encryptedTxt = encrypts.stdout.readline().rstrip()
                 log.stdin.write("resultsEncrypts\n")
                 log.stdin.write(str(encryptedTxt) + "\n")
-                print("RESULTS: " + encryptedTxt + '\n')    #Selects the decrypt command
+                print("RESULTS: " + encryptedTxt + '\n')    
+    #Selects the decrypt command
     elif int(command) == 3:
         cmnd = "decrypt"
         err = "error"
@@ -162,11 +157,11 @@ while cmnd != "quit":
                 decrypt = str(history[int(decryptChoice)-1])
                 log.stdin.write(str(decrypt) + "\n") #Sends the logger file decrypt command
                 log.stdin.flush()
-                encrypts.stdin.write(str(decrypt) + "\n")
+                encrypts.stdin.write(str(decrypt) + "\n") #send to the encryption file
                 encrypts.stdin.flush()
-                decryptedText = encrypts.stdout.readline().rstrip()
+                decryptedText = encrypts.stdout.readline().rstrip() #gets the decrypted text
                 log.stdin.write("resultsDecrypts\n")
-                log.stdin.write(str(decryptedText) + "\n")
+                log.stdin.write(str(decryptedText) + "\n") #Sends to the logger
                 print("RESULTS: " + decryptedText + '\n')
     #Shows the history 
     elif int(command) == 4:

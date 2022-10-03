@@ -35,46 +35,42 @@ memloc = 0
 mode = sys.stdin.readline().rstrip()
 
 while mode != "halt":
-    if mode == "passkey":
+    if mode == "passkey": #Setting the passkey
         passwordSet = True
-        memloc = sys.stdin.readline().rstrip()
+        memloc = sys.stdin.readline().rstrip() 
 
         sys.stdout.write("result\n")
         sys.stdout.flush()
-        password = memloc
+        password = memloc #stores the password to a local variable
+    # Encrypts
     elif mode == "encrypt":
         encryptedtxt=""
 
         memloc = sys.stdin.readline().rstrip()
-        word = memloc
+        word = memloc #stores the word to 
         word = word.upper()
         password = password.upper()
-        key = genKey(word, password)
-        encryptedtxt = encrypt(word, key)
+        key = genKey(word, password) #generated the key to encrypt
+        encryptedtxt = encrypt(word, key) #encrypts the text to encrypt 
 
-        sys.stdout.write(str(encryptedtxt) + '\n')
-        sys.stdout.flush()
+        sys.stdout.write(str(encryptedtxt) + '\n') #send the encrypted text to the driver
+        sys.stdout.flush() 
+    #Decrypts 
     elif mode == "decrypt":
         decryptedText =""
 
         memloc = sys.stdin.readline().rstrip()
-        word = memloc
-        word = word.upper()
-        password = password.upper()
-        key = genKey(word, password)
+        word = memloc #gets the word to decrypt
+        word = word.upper() #convert the words to upper
+        password = password.upper() #converts the password to upper
+        key = genKey(word, password) #sets the key for the decryption
 
-        decryptedText = decrypt(word, key)
+        decryptedText = decrypt(word, key) #decrypts the word
 
-        sys.stdout.write(str(decryptedText) + '\n')
+        sys.stdout.write(str(decryptedText) + '\n') # sends to driver
         sys.stdout.flush()
-
-    elif mode == "error":
-        sys.stdout.write("error\n")
+    #Error
+    elif mode == "error": 
+        sys.stdout.write("error\n") #checks the error
         sys.stdout.flush()
-        
-    elif mode == "read":
-        print(memloc)
-        sys.stdout.flush()
-    elif mode == "write":
-        memloc = int(sys.stdin.readline().rstrip())
     mode = sys.stdin.readline().rstrip()
