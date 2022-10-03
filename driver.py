@@ -67,17 +67,26 @@ while cmnd != "quit":
             pass
         else: #password is set 
             log.stdin.write("encrypt\n")
+            encrypts.stdin.write("encrypt\n")
             encrypted = input("Choose from history(1) or type word(2)\n")
             if int(encrypted) == 2: #Selects a new word to encrypt
                 encrpt = input("Insert the word you'd like to encrypt: ")
                 history.append(encrpt) #adds the word to the history
                 log.stdin.write(str(encrpt) +"\n") #sends to the logger file to log
                 log.stdin.flush()
+                encrypts.stdin.write(str(encrpt) +"\n")
+                encrypts.stdin.flush()
+                encryptedTxt = encrypts.stdout.readline().rstrip()
+                log.stdin.write("resultsEncrypts\n")
+                log.stdin.write(str(encryptedTxt) + "\n")
+                print("RESULTS: " + encryptedTxt + '\n')
             else: #Selects the word from the history
                 for i in range(len(history)): 
                     print(str(i + 1) + "-" + history[i]+ "\n")
                 encryptChoice = input ("Select the word you'd like to encrypt: ")
                 encrypt = str(history[int(encryptChoice)-1])
+                encrypts.stdin.write(str(encrypt) + "\n")
+                encrypts.stdin.flush()
                 log.stdin.write(str(encrypt) + "\n")
                 log.stdin.flush()
     #Selects the decrypt command
@@ -94,12 +103,20 @@ while cmnd != "quit":
             pass
         else: #password is set
             log.stdin.write("decrypt\n")
+            encrypts.stdin.write("decrypt\n")
             decrypted = input("Choose a word to be decrypted from history(1) or type a new word to be decrypted(2)\n")
             if int(decrypted) == 2: #selects to decrypt a new word
                 decrypt = input("Insert the word you'd like to decrypt: ")
                 history.append(decrypt) #adds word to history
                 log.stdin.write(str(decrypt) + "\n") #sends to the logger file to log
                 log.stdin.flush()
+
+                encrypts.stdin.write(str(decrypt) + "\n")
+                encrypts.stdin.flush()
+                decryptedText = encrypts.stdout.readline().rstrip()
+                log.stdin.write("resultsDecrypts\n")
+                log.stdin.write(str(decryptedText) + "\n")
+                print("RESULTS: " + decryptedText + '\n')
             else: #Selects from the history
                 for i in range(len(history)): 
                     print(str(i + 1) + "-" + history[i]+ "\n")

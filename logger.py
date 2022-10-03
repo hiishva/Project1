@@ -26,6 +26,10 @@ while mode != "halt":
         memloc = sys.stdin.readline().rstrip()
         file1.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [RESULT] " + memloc + "\n")
         sys.stdout.flush()
+    elif mode == "resultsDecrypts":
+        memloc = sys.stdin.readline().rstrip()
+        file1.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " [RESULT] " + memloc + "\n")
+        sys.stdout.flush()
     #Adds the error command to the log file
     elif mode == "error":
         memloc = sys.stdin.readline().rstrip()

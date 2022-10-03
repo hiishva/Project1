@@ -19,6 +19,14 @@ def encrypt(encrypt, password):
         encrypted.append(chr(x))
     return("".join(encrypted))
 
+def decrypt(decrypt, password):
+    original = []
+    for i in range(len(decrypt)):
+        x = (ord (decrypt[i]) - ord(password[i]) + 26) % 26
+        x += ord('A')
+        original.append(chr(x))
+    return ("".join(original))
+
 file2 = open("test2.txt", 'w') #opens the file in append mode
 file2.write("File2 opened\n")
 sys.stdout.flush()
@@ -36,27 +44,62 @@ while mode != "halt":
     if mode == "passkey":
         file2.write("after passkey\n")
         sys.stdout.flush()
-
         passwordSet = True
         memloc = sys.stdin.readline().rstrip()
-        print("result\n")
+
+        sys.stdout.write("result\n")
+        sys.stdout.flush()
         password = memloc
         file2.write(memloc)
         sys.stdout.flush()
-    elif mode == "error":
-        memloc = sys.stdin.readline().rstrip()
-        print("error\n")
-        sys.stdout.flush()
     elif mode == "encrypt":
-        if passwordSet:
-            memloc = sys.stdin.readline().rstrip()
-            encrypted = memloc
-            print(memloc)
-            key = genKey(encrypted, password)
-            encrypted_text = encrypt(encrypted, key)
-            print(encrypted_text)
-            sys.stdout.flush()
+        encryptedtxt=""
+        file2.write("after encrypt\n")
+        sys.stdout.flush()
 
+        memloc = sys.stdin.readline().rstrip()
+        file2.write(memloc +"\n")
+        sys.stdout.flush()
+        word = memloc
+        word = word.upper()
+        password = password.upper()
+        file2.write(memloc +"\n")
+        sys.stdout.flush()
+        key = genKey(word, password)
+        file2.write(str(key) + '\n')
+        sys.stdout.flush()
+        encryptedtxt = encrypt(word, key)
+        #sys.stdout.flush()
+        file2.write(encryptedtxt + '\n')
+        sys.stdout.flush()
+
+        sys.stdout.write(str(encryptedtxt) + '\n')
+        sys.stdout.flush()
+    elif mode == "decrypt":
+        decryptedText =""
+        file2.write("after decrypt")
+        sys.stdout.flush()
+
+        memloc = sys.stdin.readline().rstrip()
+        file2.write(memloc +"\n")
+        sys.stdout.flush()
+        word = memloc
+        word = word.upper()
+        password = password.upper()
+        file2.write(memloc +"\n")
+        sys.stdout.flush()
+        key = genKey(word, password)
+        file2.write(str(key) + '\n')
+        sys.stdout.flush()
+        file2.write(str(key) + '\n')
+        sys.stdout.flush()
+
+        decryptedText = decrypt(word, key)
+        file2.write(encryptedtxt + '\n')
+        sys.stdout.flush()
+
+        sys.stdout.write(str(decryptedText) + '\n')
+        sys.stdout.flush()
     elif mode == "read":
         print(memloc)
         sys.stdout.flush()
