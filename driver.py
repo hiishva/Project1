@@ -29,6 +29,7 @@ while cmnd != "quit":
         encrypts.stdin.flush()
         selectPswd = input ("Select password from history (1) or create a new one(2): \n")
         if int(selectPswd) == 1: #Select a password from history
+            isPswrdSet = True
             for i in range(len(history)): 
                 print(str(i + 1) + "-" + history[i]+ "\n")
             pswdChoice = input ("Select the password you'd like to use: ")
@@ -48,7 +49,6 @@ while cmnd != "quit":
         else: #Choose a new password
             pswd = input("Insert the password you'd like to use: ")
             history.append(str(pswd))
-            isPswrdSet = True
             encrypts.stdin.write(str(pswd) + "\n")
             encrypts.stdin.flush()
             log.stdin.write(str(pswd) +"\n")
@@ -64,18 +64,24 @@ while cmnd != "quit":
     #user selects encrypt
     elif int(command) == 2:
         cmnd = "encrypt"
+        #password is set 
         if not isPswrdSet: #Check if the password is not set
             cmnd = "error"
+            error = "error"
+            encrypts.stdin.write("error\n")
+            encrypts.stdin.flush()
+            
             log.stdin.write("error\n")
-            err = "error"
-            print("ERROR PASSWORD NOT SET")
-            log.stdin.write(str(err) + "\n") #Sends error to logger file
-            cmnd = ""
             log.stdin.flush()
+            print("ERROR PASSWORD IS NOT SET\n")
+            err = encrypts.stdout.readline().rstrip()
+            
+            log.stdin.write(str(err) + "\n") #sends error to logger
+            log.stdin.flush()
+            cmnd = ""
             pass
-        else: #password is set 
-            log.stdin.write("encrypt\n")
-            encrypts.stdin.write("encrypt\n")
+            
+        else:
             encrypted = input("Choose from history(1) or type word(2)\n")
             if int(encrypted) == 2: #Selects a new word to encrypt
                 encrpt = input("Insert the word you'd like to encrypt: ")
@@ -84,6 +90,7 @@ while cmnd != "quit":
                 log.stdin.flush()
                 encrypts.stdin.write(str(encrpt) +"\n")
                 encrypts.stdin.flush()
+
                 encryptedTxt = encrypts.stdout.readline().rstrip()
                 log.stdin.write("resultsEncrypts\n")
                 log.stdin.write(str(encryptedTxt) + "\n")
@@ -106,13 +113,20 @@ while cmnd != "quit":
     elif int(command) == 3:
         cmnd = "decrypt"
         err = "error"
-        if not isPswrdSet: #checks if the error is set
+        if not isPswrdSet: #Check if the password is not set
             cmnd = "error"
-            log.stdin.write(str(err) + "\n")
-            print("ERROR PASSWORD IS NOT SET\n")
-            log.stdin.write(str(err) + "\n") #sends error to logger
-            cmnd = ""
+            error = "error"
+            encrypts.stdin.write("error\n")
+            encrypts.stdin.flush()
+            
+            log.stdin.write("error\n")
             log.stdin.flush()
+            print("ERROR PASSWORD IS NOT SET\n")
+            err = encrypts.stdout.readline().rstrip()
+            
+            log.stdin.write(str(err) + "\n") #sends error to logger
+            log.stdin.flush()
+            cmnd = ""
             pass
         else: #password is set
             log.stdin.write("decrypt\n")
